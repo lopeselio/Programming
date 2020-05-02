@@ -35,3 +35,30 @@ public:
     }
 };
 ============================================END=================================
+//JAVA
+
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+        Set<Character> jewels = new HashSet<>();
+        for(char c : J.toCharArray()){
+            jewels.add(c);
+        }
+        int countJ = 0;
+        for(char c : S.toCharArray()){
+            if(jewels.contains(c)){
+                countJ++;
+            }
+        }
+        return countJ;
+    }
+}
+================================================================================
+//PYTHON
+class Solution:
+    def numJewelsInStones(self, J: str, S: str) -> int:
+        count = 0
+        for c in S:
+            if c in J:
+                count += 1
+        return count
+        
