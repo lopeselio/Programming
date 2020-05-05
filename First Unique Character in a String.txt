@@ -31,5 +31,44 @@ public:
         
     }
 };
+
 --------------------------------------------------END------------------------------------------------------------------
+
+//JAVA
+class Solution {
+    public int firstUniqChar(String s) {
+        int[] count = new int[26];
+        
+        for(char cr: s.toCharArray()){
+            count[cr -'a'] += 1;
+        }
+        
+        for( int i=0; i<s.length(); i++){
+            if(count[s.charAt(i) -'a'] ==1 ){
+                return i;
+            }
+        }
+        return -1;
+        
+    }
+}
+END------------------------------------------------------------------
+
+//PYTHON
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        count = [0]*26
+        
+        for cr in s:
+            count[ord(cr) -ord('a')] += 1
+        
+        
+        for i in range(len(s)):
+            if count[ord(s[i]) - ord('a')] ==1:
+                return i
+            
+        
+        return -1
+        
 
