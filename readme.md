@@ -1,1 +1,2 @@
-A collection of practice problems, and solutions to various challenges and questions, in the LeetCode,Hackerrank and Codechef online coding platform.
+A collection of algorithms, problems for coding interviews and solutions to various challenges and questions, in the LeetCode,Hackerrank and Codechef online coding platform.
+
