@@ -1,0 +1,62 @@
+class Solution {
+    public double[] sampleStats(int[] count) {
+        double[] output = new double[5];
+        output[0] = Double.MAX_VALUE;
+        output[1] = Double.MIN_VALUE;
+        int currMaxFreq = 0;
+        long sum = 0;
+        long countSum = 0;
+        for(int i = 0; i < count.length; i++){
+            if (output[0]==Double.MAX_VALUE && count[i] != 0){
+                output[0]=i;
+            }
+            if(count[i] != 0) {
+                output[1] = i;
+            }
+            if(count[i] > currMaxFreq) {
+                currMaxFreq = count[i];
+                output[4] = i;
+            }
+            countSum += count[i];
+            sum += count[i] * i;
+        }
+        output[2] = ((double)sum) / ((double)countSum);
+        if(countSum % 2 == 0){
+            double firstSearch = countSum / 2;
+            int tempSum = 0;
+            for(int i = 0; i < count.length; i++){
+                if(tempSum + count[i] >= firstSearch){
+                    output[3] += i;
+                    break;
+                }
+                tempSum += count[i];                
+            }
+            double seconSearch = countSum/2 + 1;
+            tempSum = 0;
+            for(int i = 0; i < count.length; i++){
+                if(tempSum + count[i] >= seconSearch) {
+                    output[3] += i;
+                    break;
+                }
+                tempSum += count[i];
+            }
+            output[3] /= 2.0;
+        }else {
+            int tempSum = 0;
+            for(int i=0; i< count.length; i++){
+                if(tempSum + count[i] >= countSum/2 + 1){
+                    output[3] = i;
+                    break;
+                }
+                tempSum += count[i];
+            }
+        }
+        return output;
+                                              
+                                            
+            
+    }
+        
+        
+}
+
