@@ -1,0 +1,112 @@
+Input : array a[] = {1, 1, 1, 2, 7, 1}
+Output : Mode = 1
+         
+Input : array a[] = {9, 9, 9, 9, 9}
+Output : Mode = 9 
+
+C++
+#include<bits/stdc++.h>
+using namespace std;
+
+void printMode(int a[], int n)
+{
+    int max = *max_element(a, a+n);
+    int t = max + 1;
+    int count[t];
+    for(int i = 0; i< t; i++){
+        count[i] = 0;
+    }
+    
+    for(int i=0; i<n; i++)
+    {
+        count[a[i]]++;
+    }
+
+    int mode = 0;
+    int k = count[0];
+    for( int i=1; i<t; i++){
+        if(count[i] > k){
+            k = count[i];
+            mode = i;
+        }
+    }
+    cout << "Mode : " << mode;
+}
+
+int main() 
+{ 
+    int a[] = { 1, 4, 1, 2, 7, 1, 2, 5, 3, 6 }; 
+    int n = sizeof(a) / sizeof(a[0]); 
+    printMode(a, n); 
+    return 0; 
+} 
+==========================================
+
+//JAVA
+import java.util.Arrays;
+
+class Mode{
+
+    static void printMode(int[] a, int n)
+    {
+        int max = Arrays.stream(a).max().getAsInt();
+        int t = max + 1;
+        int[] count = new int[t];
+        for (int i - 0; i<t ; i++)
+        {
+            count[i] = 0;
+        }
+        
+        for(int i=0; i<n ; i++)
+        {
+            count[a[i]]++;
+        }
+
+        int mode = 0;
+        int k = count[0];
+        for(int i=0; i<t; i++)
+        {
+            if(count[i] < k)
+            {
+                k = count[i];
+                mode = i;
+            }
+        }
+        System.out.println("mode: " + mode);
+    }
+    
+    public static void main(String[] args)
+    {
+        int[] a = {1, 4, 1, 2, 7, 1, 2, 5, 3, 6};
+        int n = a.length;
+        printMode(a,n);
+    }
+}
+
+==========================================
+//PYTHON
+def printMode(a, n):
+    max_element = max(a)
+    t = max_element + 1
+    count = [0] * t
+    for i in range(t):
+        count[i] = 0    
+    for i in range(n):
+        count[a[i]] += 1
+    mode = 0
+    k = count[0]
+    for i in range(1, t):
+        if count[i] > k:
+            k= count[i]
+            mode = i
+    print("mode: ", mode)
+
+if __name__ == "__main__":
+    a = [ 1, 4, 1, 2, 7, 1, 2, 5, 3, 6 ] 
+    n = len(a) 
+    printMode(a, n)
+
+    
+        
+
+
