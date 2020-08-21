@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+//c++
+int main()
+{
+     int n;
+     cin >> n;
+     int result = 0;
+     int colorfreq[101] = {0};
+
+     for(int i = 0; i<n; ++i){
+        int color;
+        cin >> color;
+        colorfreq[color]++;
+     }
+
+     for(int i = 1; i <=100; ++i){
+         result += colorfreq[i]/2;
+     }
+     cout << result << endl;
+}
+
+=============================================
+//PYTHON
+n = int(input())
+result = 0
+
+socks = list(map(int, input().rstrip().split()))
+color = set(socks) 
+for i in color:
+   result = result + socks.count(i)//2
+
+print(result)
