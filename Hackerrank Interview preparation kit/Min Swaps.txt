@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n;
+    int inp;
+    int swap = 0;
+    cin>>n;
+    vector<int> l;
+    for(int i = 0; i<n; i++){
+        cin>>inp;
+        l.push_back(inp);
+    }
+    int i = 0;
+    while(i<n-1){
+        if(l[i] != i+1){
+            int temp = l[i];
+            l[i] = l[temp-1];
+            l[temp-1] = temp;
+            swap += 1;
+        }
+        else{
+            i+=1;
+        }
+    }
+    cout<<swap;
+    return 0;
+
+}
