@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    long a,b,c;
+    long n,q;
+
+    cin>>n>>q;
+    vector<long> arr(n+1,0);
+
+    while(q--)
+    {
+        cin>>a>>b>>c;
+        arr[a] += c;
+        if(b+1<=n)
+        {
+            arr[b+1]-=c;
+        }
+    }
+
+    long max = -300;
+    long sum = 0;
+
+    for(long i=1; i<=n; i++){
+        sum+=arr[i];
+        if(sum > max)
+        {
+            max=sum;
+        }
+    }
+    cout<<max;
+    return 0;
+}
